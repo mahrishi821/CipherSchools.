@@ -1,0 +1,7 @@
+This was the introduction of git commandas only the basic ones
+in this lecture we have taught about the installation of git and how to signup in github account
+// commands taughts
+git --user
+git --version
+git add filename
+git init
