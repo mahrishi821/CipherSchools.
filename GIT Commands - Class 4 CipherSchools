@@ -1,0 +1,28 @@
+//checkout --safe command || donot change history
+//revert --
+git revert  commit_number 
+//The git revert command is used for undoing changes to a repository's commit history
+// to abort the command we can use
+ git  abort --revert
+// checkout didnot allow us to make changes but revert allow us to make changes
+
+//reset command
+
+it reset to specific in which want to go and the further commit will be deleted 
+if we do normaly reset it will ask an d give us chance to to think
+ but if we use
+git reset -- hard commit_number
+it will not give me a chance to think
+            commit 1      commit 2        commit3 
+master ----*-----------------*-----------------*-----------------
+
+//branch
+git branch dev-1 // it will create a new branch
+git branch // it will show us all the branch
+
+git checkout dev-1 // it will go to dev-1 branch
+
+// shortcut to make a branch and  go a branch is 
+git checkout -b dev-2
+ here -b means creating a new branch
+ 
