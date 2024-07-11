@@ -1,0 +1,20 @@
+create two branch along with master branch
+master 
+dev-1
+dev-2
+
+then we were taught the concept of merging if we to merge dev-1 to master then we will go to master and write the command
+git merge dev-1
+
+and then we will add dev-2 
+to master
+git merge dev-2
+
+
+now then  we have merged the dev- 1 and dev-2 branch to master  branch
+then update the dev-1 seprately and dev-2 seprately
+then while merging it into the master we will get conflict
+            conflict can be solved by adjusting the code 
+delete the branch
+delete branch -d  dev-1
+
