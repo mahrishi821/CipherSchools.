@@ -1,0 +1,21 @@
+list tag
+<ul></ul> // unorderd list
+<ol> </ol> // ordered list
+site to refer for the tag understanding
+w3 school
+description tag 
+and anchor tag use for providing hyper link
+<a href="./two.html"> About us </a>
+here herf::  ./  represent search in the same file the write file name
+Inline elements occupy the space as needed within the space defined by the main element. Unlike block-level elements, they do not begin on new lines. Some of the inline elements are <a> , <span> , <img> , <code> , <cite> , <button> , <input> etc
+
+formating tag
+br to break the line
+hr to create horizontal line
+
+Image tag // it's a self closing tag
+<img src="./images/pic1.jpg" alt="samuria img">
+if image is not loaded due to some issue it will show the message of alt
+
+./ use for seaching in same document
+if we want to go out of the folder and search for the file we will use  ../for each folder coming out
