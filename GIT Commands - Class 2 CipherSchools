@@ -1,0 +1,22 @@
+git init // to initialise the git
+git status // to track the status
+git add index.html the file will go from modification to staging
+to unstage it we can use git rm --cached index.html
+
+going to staging to commit zone
+git commit  -m " write message like initial message"
+git log // it show commkit snapshots
+git log --oneline// it more readable format
+git  --global user// sets global identity
+git add . // to add in single go use this command
+git config --global user.name "mahrishi_rathore"
+git config user.name  // it give the name
+git conf -- global user.email "mahrishisinghrathore@gmail.com"
+clear // terminal clearing comand
+
+there are three zones
+modification--------------------- staging------------------ commit
+
+untracked zone                      check point
+index.html                             whether to commit           gti commit
+ git add index.html                       or not
