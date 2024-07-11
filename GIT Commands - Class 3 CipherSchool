@@ -1,0 +1,10 @@
+//checkout 
+//reset
+
+// to go the earlier commit we can use // going to the historyclea
+git checkout id // git checkout eed6504
+we can go to master  branch by 
+git checkout master
+
+first:: git log --oneline
+git checkout commit number
