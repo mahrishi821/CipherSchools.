@@ -1,0 +1,12 @@
+CSS :: Cascading Stylessheet
+syntax:
+element{
+properties:value;
+}
+h1 {
+  color:white;
+}
+<style> tag we are using style tag in the index file in the elemnt // inline css and internal css
+in term of priority inline is on the top then internal css and then the outer css
+
+inline>internal>external
