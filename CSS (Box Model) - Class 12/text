@@ -1,0 +1,10 @@
+Box Model
+
+margin,border,width and height
+
+overflow :scroll , itwill make the overflow text scrollable
+learn about the margin auto,  padding , how to treat text overflow  by make it scrollable 
+display properties of parent is not inheritate to the child
+
+learn the important property in the display like inline property,
+box property is important to adjust the position of elememt
