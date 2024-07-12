@@ -1,0 +1,19 @@
+Psuedo class
+hover 
+a::link{}
+a::visited{}
+a:active{}
+use to change the color depend upon the different situation
+
+position attribute
+/* position attribute */
+/* static // default
+relative 
+fixed
+absolute
+sticky *
+differnec between absolute and  relative
+relative is respect to screen
+and aboslute respect parent
+very important concept interm of positioning of element is absolute and relative , thise teach us how to control our element.
+sticky position:: it's also amazing ,in fixed the element is fixed at the particular position but in sticky we can define from what time or position it should stick on the page.
