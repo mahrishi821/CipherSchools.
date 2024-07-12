@@ -1,0 +1,34 @@
+1.properties and tragetting using css
+2.classes  and pseudo classes
+3.specificity in css
+4.box model
+
+id should be unique
+for targetting the id we will use # and for element we can use it directly
+element
+
+specificity
+id:100
+class:10
+tag:1
+
+header{
+}
+index
+#header{
+}
+class="para"
+we use
+.para{
+}
+id>class>tag
+using tag
+anchor tag
+a{
+}
+it follow a parent child class method in such a way a propertiy applied to parent will implemented on the child class , otherwise if we specify the child class properties then that property will exicute on the child
+                                                                     html
+                            body                                                                   head
+   section                                   p                                       meta
+}
+we can give class and id together
