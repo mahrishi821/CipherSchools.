@@ -1,0 +1,23 @@
+Html Sematics
+
+used earlier
+<div id="header">
+<div id="nav">
+<div id="section">
+now we use
+building a home page head
+nav bar
+<header> tag
+<nav> tag
+<section>tag
+<article> tag
+<aside>
+<footer> tag
+
+non-semantics : div and span
+semanticcs:<details> <main> <summary> <figure> <figcaption>
+
+<section> tag
+<article> tag
+
+taked about css :: cascading style sheet
