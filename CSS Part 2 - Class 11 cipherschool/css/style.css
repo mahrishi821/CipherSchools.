@@ -1,0 +1,42 @@
+body {
+    background-color: lightyellow;
+}
+header {
+    background-color: red; 
+    color: azure;
+}
+#header{
+    background-color: lightblue;
+    color: black;
+}
+header#header{
+    background-color: gray
+   
+}
+/* Specificity */
+/* id:100
+class:10
+tag:1 */
+
+#para1{
+    font-weight: bolder;
+}
+
+#article{
+    background-color: lightblue;
+    color: black;
+}
+.para
+{
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 1PX;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+p{
+   
+    color:royalblue
+}
