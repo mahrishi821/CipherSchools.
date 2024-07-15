@@ -1,17 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intro to JavaScript</title>
-</head>
 
-<body>
-    <header>
-        <h1>Javascript is awesome</h1>
-    </header>
-    <script src="./example.js"></script>
-</body>
+//syantax and declaration
+var score=10;//ES5-Ecmascript 5
+console.log(score);
+let result="50"; // ES6-Ecmascript 2015
+console.log(result);
+const PI=3.14;
+console.log(PI); 
 
-</html>
+// Datatypes
+// 1.Number
+// 2.strings
+// 3.boolean
+// 4.null
+// 5.undefined
+// 6.objects
+// 7.symbols (ES6)
+// here follow BEDMAS RULE (bracket exponent division multiplication addition substraction)
+let finalScore= score+result;// here concationation is done
+console.log(finalScore);
+let penalty=score-result;//here numerical numer is used
+// to know the type of data we will use typeof()
+console.log(penalty);
+let totalgame=10;
+let avgscore=finalScore/totalgame;
+console.log(avgscore);
+console.log(typeof(avgscore));
+
+
+// string
+console.log(typeof 'hello');
+console.log(typeof "It's raining");
+let word="raining";
+
+console.log(word.toUpperCase());
+// boolean value
+console.log(typeof true)
+console.log("mina".charAt(2))
+console.log("mahrihsi".includes('h'))
+
+if(1)
+    console.log("yes");
+else
+    console.log("no");
+// null undefined
+let scoree;
+let resultt=null;
+console.log(type score);
+console.log(type resultt);
