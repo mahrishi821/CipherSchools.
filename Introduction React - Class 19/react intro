@@ -1,0 +1,31 @@
+HTML
+<div id="root">
+</div>
+<div id="root1">
+</div>
+
+CSS
+.pizza {
+  border: 1px solid black;
+  width: 200px;
+  padding: 10px;
+  display: inline-block;
+  background: lightsalmon;
+  color: white;
+}
+
+javascript//react
+// Function component
+function Pizza() {
+  return (
+    // JSX - JavaScript XML
+    // react.createElement(div, ...)
+    <div className='pizza'>
+      <h1>Pizza</h1>
+    </div>
+  )
+}
+
+// Render the component in two different places in the DOM
+ReactDOM.render(<Pizza />, document.getElementById('root'));
+ReactDOM.render(<Pizza />, document.getElementById('root1'));
