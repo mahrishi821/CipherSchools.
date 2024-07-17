@@ -1,0 +1,46 @@
+let person = {
+    name:'John',
+    email:'John@wick.com',
+    age:45,
+    status:true,
+    childern :{
+        name :'jay'
+    },
+    hobbies:['reading','writitng',true,100,null],
+    login: () =>{
+        console.log(this);
+    },
+    logout:function()
+    {
+        console.log('Logout',this);
+    }
+}
+console.log(this);
+person.login();
+person.logout();
+
+in this login function the  context is passed as the windows 
+but in regular function in doesn't happend
+ that ways we don't use arrow function to define object
+
+from where the this is passed it will passes that contxt to arrow function
+// method chaining
+person.login().updateLogin()
+
+
+CLASS
+// everthing define in javascript is an object
+new keyword : creating an instance of person class
+in chaining the function must return something either it will give error and fail to execute
+// bassic class syntax and how to call it
+learn about the constructor
+let rollno=new Number(10);
+console.log(rollno);
+let nm=new String('ram');
+console.log(nm);
+let obj=new Object({name:'ram'});
+console.log(obj); 
+// here the typr of rollno will show the object 
+if we defined rollno number as
+let rollno =20
+then it will give the output as number
