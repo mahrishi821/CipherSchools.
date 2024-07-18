@@ -1,0 +1,7 @@
+React -1
+here we have Documented Object Model
+
+in which it compare the change in the code and only update the change,
+and then render the code
+cocument.createElement('textarea)
+ReactDOM.render('<Textarea>',documnet.getElementBy Id('root'))
