@@ -1,0 +1,40 @@
+<!-- <div class="pizza">
+  <h1> Pizza Hut </h1>
+  <p>Best pizza in town</p>
+</div>
+<div class="pizza">
+  <h1> Dominos </h1>
+  <p>Best pizza in town</p>
+</div> -->
+
+<div id="root">
+</div>
+<div id="root1">
+</div>
+
+
+css
+.pizza {
+  border: 1px solid black;
+  width: 200px;
+  padding: 10px;
+  display: inline-block;
+  background: lightsalmon;
+  color: white;
+}
+
+java script/react
+// Function component
+function Pizza() {
+  return (
+    // JSX - JavaScript XML
+    // react.createElement(div, ...)
+    <div className='pizza'>
+      <h1>Pizza</h1>
+    </div>
+  )
+}
+
+// Render the component in two different places in the DOM
+ReactDOM.render(<Pizza />, document.getElementById('root'));
+ReactDOM.render(<Pizza />, document.getElementById('root1'));
