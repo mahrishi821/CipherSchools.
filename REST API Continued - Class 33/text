@@ -1,0 +1,188 @@
+
+// Routes for User
+app.post('/users', async (req, res) => {
+  try {
+    const user = new User(req.body);
+    await user.save();
+    res.status(201).send(user);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+app.get('/users', async (req, res) => {
+  try {
+    const users = await User.find();
+    res.send(users);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.put('/users/:id', async (req, res) => {
+  try {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+    if (!user) return res.status(404).send();
+    res.send(user);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+app.delete('/users/:id', async (req, res) => {
+  try {
+    const user = await User.findByIdAndDelete(req.params.id);
+    if (!user) return res.status(404).send();
+    res.send(user);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+// Routes for Category
+app.post('/categories', async (req, res) => {
+  try {
+    const category = new Category(req.body);
+    await category.save();
+    res.status(201).send(category);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+app.get('/categories', async (req, res) => {
+  try {
+    const categories = await Category.find();
+    res.send(categories);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+// Routes for Product
+app.post('/products', async (req, res) => {
+  try {
+    const product = new Product(req.body);
+    await product.save();
+    res.status(201).send(product);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+app.get('/products', async (req, res) => {
+  try {
+    const products = await Product.find().populate('category');
+    res.send(products);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.put('/products/:id', async (req, res) => {
+  try {
+    const product = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+    if (!product) return res.status(404).send();
+    res.send(product);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+app.delete('/products/:id', async (req, res) => {
+  try {
+    const product = await Product.findByIdAndDelete(req.params.id);
+    if (!product) return res.status(404).send();
+    res.send(product);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+// Start the server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+
+ Step 4: Test Your API
+
+Use a tool like Postman to test your API endpoints. Here are some examples of the operations you can perform:
+
+ Create a User
+ Method: POST
+ URL: `http://localhost:5000/users`
+ Body:
+  json
+  {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "password123",
+    "country": "USA"
+  }
+  
+
+ Read All Users
+ Method: GET
+ URL: `http://localhost:5000/users`
+
+ Update a User
+ Method: PUT
+ URL: `http://localhost:5000/users/:id`
+ Body:
+  json
+  {
+    "country": "Canada"
+  }
+  
+
+ Delete a User
+ Method: DELETE
+ URL: `http://localhost:5000/users/:id`
+
+ Create a Category
+ Method: POST
+ URL: `http://localhost:5000/categories`
+ Body:
+  json
+  {
+    "categoryName": "Electronics"
+  }
+  
+
+ Read All Categories
+ Method: GET
+ URL: `http://localhost:5000/categories`
+
+ Create a Product
+ Method: POST
+ URL: `http://localhost:5000/products`
+ Body:
+  json
+  {
+    "productName": "Smartphone",
+    "price": 699,
+    "category": "category_id",
+    "quantity": 50
+  }
+  
+
+ Read All Products
+ Method: GET
+ URL: `http://localhost:5000/products`
+
+ Update a Product
+ Method: PUT
+ URL: `http://localhost:5000/products/:id`
+ Body:
+  json
+  {
+    "price": 799
+  }
+  
+
+ Delete a Product
+ Method: DELETE
+ URL: `http://localhost:5000/products/:id`
+
