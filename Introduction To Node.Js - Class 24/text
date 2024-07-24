@@ -1,0 +1,32 @@
+Backend : Brain of the website
+Standard : single resopnzibility principle
+
+function calAreaofCircle(radius)
+{
+ let perimeter =2^3.14*radius;// wrong way to write code means it's a mess 
+ return 3.14*r**2;
+}
+
+// microservices ?
+
+Backend technologies
+java(springboot,JPA)
+Ruby on rails
+PHP
+
+JavaScript Backend (Node,Express,MongoDb)
+Node is written in c++
+
+
+	Regular javascript
+c++   Node   v8 javascript Engine
+Assembly Language
+Machine Language(0 and 1)
+
+
+// global object for backend
+console.log(global) from this it will shows us the object details
+
+
+//create a server 
+in the server we have request and response
