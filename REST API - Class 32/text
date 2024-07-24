@@ -1,0 +1,84 @@
+
+ Step 1: 
+
+1. Initialize your Node.js project (if not already done):
+   bash
+   npm init y
+   
+
+2. Install necessary packages:
+   bash
+   npm install express mongoose bodyparser
+   
+
+ Step 2: Create Mongoose Schemas
+
+Use the schemas from the previous steps, or place them in a `models` directory if not already done.
+
+ `models/User.js`
+javascript
+const mongoose = require('mongoose');
+
+const UserSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  country: { type: String }
+});
+
+module.exports = mongoose.model('User', UserSchema);
+
+
+ `models/Category.js`
+javascript
+const mongoose = require('mongoose');
+
+const CategorySchema = new mongoose.Schema({
+  categoryName: { type: String, required: true }
+});
+
+module.exports = mongoose.model('Category', CategorySchema);
+
+
+ `models/Product.js`
+javascript
+const mongoose = require('mongoose');
+
+const ProductSchema = new mongoose.Schema({
+  productName: { type: String, required: true },
+  description: { type: String },
+  price: { type: Number, required: true },
+  category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true },
+  quantity: { type: Number, required: true }
+});
+
+module.exports = mongoose.model('Product', ProductSchema);
+
+
+ Step 3: Set Up Express and MongoDB Connection
+
+Create a `server.js` file to set up the Express server and connect to MongoDB.
+
+ `server.js`
+javascript
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('bodyparser');
+
+const User = require('./models/User');
+const Category = require('./models/Category');
+const Product = require('./models/Product');
+
+const app = express();
+app.use(bodyParser.json());
+
+// Connect to MongoDB
+mongoose.connect('your_mongodb_connection_string', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log('MongoDB connected...');
+}).catch(err => {
+  console.error(err.message);
+});
+
