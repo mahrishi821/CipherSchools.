@@ -1,0 +1,179 @@
+ Step 1:
+
+1. Initialize your Node.js project:
+   bash
+   npm init -y
+   
+
+2. Install necessary packages:
+   bash
+   npm install mongoose mocha chai
+   
+
+ Step 2: Create Mongoose Schemas
+
+Create a directory called `models` and add three files: `User.js`, `Category.js`, and `Product.js`.
+
+# `models/User.js`
+javascript
+const mongoose = require('mongoose');
+
+const UserSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  country: { type: String }
+});
+
+module.exports = mongoose.model('User', UserSchema);
+
+
+# `models/Category.js`
+javascript
+const mongoose = require('mongoose');
+
+const CategorySchema = new mongoose.Schema({
+  categoryName: { type: String, required: true }
+});
+
+module.exports = mongoose.model('Category', CategorySchema);
+
+
+# `models/Product.js`
+javascript
+const mongoose = require('mongoose');
+
+const ProductSchema = new mongoose.Schema({
+  productName: { type: String, required: true },
+  description: { type: String },
+  price: { type: Number, required: true },
+  category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true },
+  quantity: { type: Number, required: true }
+});
+
+module.exports = mongoose.model('Product', ProductSchema);
+
+
+ Step 3: Connect to MongoDB
+
+Create a `database.js` file to connect to your MongoDB Atlas account.
+
+# `database.js`
+javascript
+const mongoose = require('mongoose');
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect('your_mongodb_connection_string', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    console.log('MongoDB connected...');
+  } catch (err) {
+    console.error(err.message);
+    process.exit(1);
+  }
+};
+
+module.exports = connectDB;
+
+
+Replace `your_mongodb_connection_string` with your actual MongoDB Atlas connection string.
+
+ Step 4: Write Test Cases
+
+Create a `test` directory and add a `test.js` file.
+
+# `test/test.js`
+javascript
+const mongoose = require('mongoose');
+const { expect } = require('chai');
+const connectDB = require('../database');
+const User = require('../models/User');
+const Category = require('../models/Category');
+const Product = require('../models/Product');
+
+describe('MongoDB CRUD Operations', () => {
+  before(async () => {
+    await connectDB();
+  });
+
+  after(async () => {
+    await mongoose.connection.close();
+  });
+
+  let user, category, product;
+
+  it('should create a user', async () => {
+    user = new User({ name: 'John Doe', email: 'john@example.com', password: 'password123', country: 'USA' });
+    const savedUser = await user.save();
+    expect(savedUser.name).to.equal('John Doe');
+  });
+
+  it('should create a category', async () => {
+    category = new Category({ categoryName: 'Electronics' });
+    const savedCategory = await category.save();
+    expect(savedCategory.categoryName).to.equal('Electronics');
+  });
+
+  it('should create a product', async () => {
+    product = new Product({ productName: 'Smartphone', price: 699, category: category._id, quantity: 50 });
+    const savedProduct = await product.save();
+    expect(savedProduct.productName).to.equal('Smartphone');
+  });
+
+  it('should read a user', async () => {
+    const foundUser = await User.findOne({ email: 'john@example.com' });
+    expect(foundUser.name).to.equal('John Doe');
+  });
+
+  it('should read a product', async () => {
+    const foundProduct = await Product.findOne({ productName: 'Smartphone' }).populate('category');
+    expect(foundProduct.productName).to.equal('Smartphone');
+    expect(foundProduct.category.categoryName).to.equal('Electronics');
+  });
+
+  it('should read categories', async () => {
+    const categories = await Category.find();
+    expect(categories.length).to.be.at.least(1);
+  });
+
+  it('should update user country', async () => {
+    user.country = 'Canada';
+    const updatedUser = await user.save();
+    expect(updatedUser.country).to.equal('Canada');
+  });
+
+  it('should update product quantity', async () => {
+    product.quantity = 40;
+    const updatedProduct = await product.save();
+    expect(updatedProduct.quantity).to.equal(40);
+  });
+
+  it('should update product price', async () => {
+    product.price = 799;
+    const updatedProduct = await product.save();
+    expect(updatedProduct.price).to.equal(799);
+  });
+
+  it('should delete a user', async () => {
+    await User.deleteOne({ _id: user._id });
+    const deletedUser = await User.findById(user._id);
+    expect(deletedUser).to.be.null;
+  });
+
+  it('should delete a product', async () => {
+    await Product.deleteOne({ _id: product._id });
+    const deletedProduct = await Product.findById(product._id);
+    expect(deletedProduct).to.be.null;
+  });
+});
+
+
+ Step 5: Run the Tests
+
+Run the following command to execute your test cases:
+
+bash
+npx mocha
+
